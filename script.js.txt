@@ -1,0 +1,22 @@
+let numberToGuess = Math.floor(Math.random() * 100) + 1;
+let attempts = 0;
+
+function checkGuess() {
+    const guessInput = document.getElementById('guessInput');
+    const result = document.getElementById('result');
+    const attemptsElement = document.getElementById('attempts');
+    const guess = Number(guessInput.value);
+
+    attempts++;
+    
+    if (guess < numberToGuess) {
+        result.textContent = "Too low!";
+    } else if (guess > numberToGuess) {
+        result.textContent = "Too high!";
+    } else {
+        result.textContent = "Congratulations! You guessed the number!";
+    }
+    
+    attemptsElement.textContent = `Attempts: ${attempts}`;
+    guessInput.value = '';
+}
